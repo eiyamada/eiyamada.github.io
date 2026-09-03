@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="index, follow">
-  <meta name="description" content="Academic website of Eiji Yamada, a Doctoral Student in the Graduate Major in Mathematical and Computing Science, Institute of Science Tokyo.">
+  <meta name="description" content="Academic website of Eiji Yamada, a Doctoral Student at Institute of Science Tokyo.">
 
   <title>Eiji Yamada | Academic Website</title>
 
@@ -135,12 +135,23 @@
       letter-spacing: -0.025em;
     }
 
-    .hero p {
+    .hero .position {
       margin: 0;
-      max-width: 880px;
       color: var(--muted);
       font-size: 18px;
       line-height: 1.6;
+    }
+
+    .profile-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 18px;
+      margin-top: 18px;
+      font-size: 14px;
+    }
+
+    .profile-links a {
+      font-weight: 500;
     }
 
     main {
@@ -183,6 +194,10 @@
 
     .affiliation-card span {
       color: var(--muted);
+    }
+
+    .research-interests-space {
+      min-height: 40px;
     }
 
     .timeline {
@@ -237,47 +252,6 @@
       font-size: 14px;
     }
 
-    .profile-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 16px;
-    }
-
-    .profile-link {
-      display: block;
-      min-height: 116px;
-      padding: 22px;
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      color: var(--text);
-      transition: box-shadow 0.15s ease, transform 0.15s ease;
-    }
-
-    .profile-link:hover,
-    .profile-link:focus {
-      text-decoration: none;
-      box-shadow: 0 2px 8px rgba(60, 64, 67, 0.18);
-      transform: translateY(-1px);
-    }
-
-    .profile-name {
-      display: block;
-      margin-bottom: 8px;
-      font-size: 17px;
-      font-weight: 500;
-    }
-
-    .profile-url {
-      display: block;
-      color: var(--muted);
-      font-size: 13px;
-      overflow-wrap: anywhere;
-    }
-
-    .research-interests-space {
-      min-height: 40px;
-    }
-
     footer {
       border-top: 1px solid var(--border);
     }
@@ -318,10 +292,6 @@
         grid-template-columns: 1fr;
         gap: 5px;
       }
-
-      .profile-grid {
-        grid-template-columns: 1fr;
-      }
     }
   </style>
 </head>
@@ -332,10 +302,9 @@
       <a class="site-title" href="#top">Eiji Yamada</a>
       <nav class="nav-links" aria-label="Primary navigation">
         <a href="#affiliation">Affiliation</a>
+        <a href="#research-interests">Research Interests</a>
         <a href="#education">Education</a>
         <a href="#papers">Papers</a>
-        <a href="#profiles">Profiles</a>
-        <a href="#research-interests">Research Interests</a>
       </nav>
     </div>
   </header>
@@ -343,7 +312,12 @@
   <div class="hero" id="top">
     <div class="hero-inner">
       <h1>Eiji Yamada</h1>
-      <p>Doctoral Student, Graduate Major in Mathematical and Computing Science, Department of Mathematical and Computing Science, School of Computing, Institute of Science Tokyo</p>
+      <p class="position">Doctoral Student, Institute of Science Tokyo</p>
+      <div class="profile-links" aria-label="Academic profiles">
+        <a href="https://researchmap.jp/e-yamada" target="_blank" rel="me noopener">researchmap</a>
+        <a href="https://orcid.org/0009-0007-2519-8016" target="_blank" rel="me noopener">ORCID</a>
+        <a href="https://scholar.google.com/citations?user=GYGGPxcAAAAJ&amp;hl=en&amp;oi=sra" target="_blank" rel="me noopener">Google Scholar</a>
+      </div>
     </div>
   </div>
 
@@ -353,6 +327,13 @@
       <div class="affiliation-card">
         <strong>Doctoral Student</strong>
         <span>Graduate Major in Mathematical and Computing Science, Department of Mathematical and Computing Science, School of Computing, Institute of Science Tokyo</span>
+      </div>
+    </section>
+
+    <section id="research-interests">
+      <h2>Research Interests</h2>
+      <div class="research-interests-space">
+        <!-- Add research interests here when ready. -->
       </div>
     </section>
 
@@ -386,31 +367,6 @@
           <div class="publication-meta">Eiji Yamada · Apr 7, 2026</div>
         </li>
       </ol>
-    </section>
-
-    <section id="profiles">
-      <h2>Academic Profiles</h2>
-      <div class="profile-grid">
-        <a class="profile-link" href="https://researchmap.jp/e-yamada" target="_blank" rel="me noopener">
-          <span class="profile-name">researchmap</span>
-          <span class="profile-url">researchmap.jp/e-yamada</span>
-        </a>
-        <a class="profile-link" href="https://orcid.org/0009-0007-2519-8016" target="_blank" rel="me noopener">
-          <span class="profile-name">ORCID</span>
-          <span class="profile-url">0009-0007-2519-8016</span>
-        </a>
-        <a class="profile-link" href="https://scholar.google.com/citations?user=GYGGPxcAAAAJ&amp;hl=en&amp;oi=sra" target="_blank" rel="me noopener">
-          <span class="profile-name">Google Scholar</span>
-          <span class="profile-url">scholar.google.com/citations?user=GYGGPxcAAAAJ</span>
-        </a>
-      </div>
-    </section>
-
-    <section id="research-interests">
-      <h2>Research Interests</h2>
-      <div class="research-interests-space">
-        <!-- Add research interests here when ready. -->
-      </div>
     </section>
   </main>
 
