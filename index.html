@@ -3,34 +3,433 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+  <meta name="description" content="Academic website of Eiji Yamada, a PhD student in Mathematical and Computing Science at Institute of Science Tokyo.">
 
-  <title>E. Yamada | Researcher</title>
-  <meta name="description"
-        content="Personal academic website of E. Yamada. Research, publications, and academic profiles.">
+  <title>Eiji Yamada | Academic Website</title>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Eiji Yamada",
+    "alternateName": "山田 瑛嗣",
+    "url": "https://eiyamada.github.io/",
+    "jobTitle": "PhD Student",
+    "affiliation": {
+      "@type": "CollegeOrUniversity",
+      "name": "Institute of Science Tokyo"
+    },
+    "sameAs": [
+      "https://researchmap.jp/e-yamada",
+      "https://orcid.org/0009-0007-2519-8016",
+      "https://scholar.google.com/citations?user=GYGGPxcAAAAJ&hl=en&oi=sra"
+    ]
+  }
+  </script>
+
+  <style>
+    :root {
+      --text: #202124;
+      --muted: #5f6368;
+      --border: #dadce0;
+      --surface: #ffffff;
+      --surface-soft: #f8f9fa;
+      --accent: #1a73e8;
+      --max-width: 1040px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background: var(--surface);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover,
+    a:focus {
+      text-decoration: underline;
+    }
+
+    .site-header {
+      border-bottom: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.96);
+    }
+
+    .header-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 28px;
+      min-height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+    }
+
+    .site-title {
+      color: var(--text);
+      font-size: 20px;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+      white-space: nowrap;
+    }
+
+    .site-title:hover,
+    .site-title:focus {
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 24px;
+      font-size: 14px;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      padding: 23px 0 20px;
+      border-bottom: 3px solid transparent;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus {
+      color: var(--text);
+      text-decoration: none;
+      border-bottom-color: var(--accent);
+    }
+
+    .hero {
+      background: var(--surface-soft);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 70px 28px 64px;
+    }
+
+    .hero h1 {
+      margin: 0 0 12px;
+      font-size: clamp(38px, 6vw, 58px);
+      line-height: 1.12;
+      font-weight: 500;
+      letter-spacing: -0.025em;
+    }
+
+    .hero p {
+      margin: 0;
+      max-width: 760px;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    main {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 20px 28px 80px;
+    }
+
+    section {
+      padding: 48px 0;
+      border-bottom: 1px solid var(--border);
+      scroll-margin-top: 24px;
+    }
+
+    section:last-child {
+      border-bottom: 0;
+    }
+
+    h2 {
+      margin: 0 0 26px;
+      font-size: 28px;
+      line-height: 1.25;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+    }
+
+    .affiliation-card {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 24px 26px;
+      background: var(--surface);
+    }
+
+    .affiliation-card strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 17px;
+      font-weight: 500;
+    }
+
+    .affiliation-card span {
+      color: var(--muted);
+    }
+
+    .timeline {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .timeline li {
+      display: grid;
+      grid-template-columns: 150px 1fr;
+      gap: 24px;
+      padding: 20px 0;
+      border-top: 1px solid #eceff1;
+    }
+
+    .timeline li:first-child {
+      border-top: 0;
+      padding-top: 0;
+    }
+
+    .timeline .date {
+      color: var(--muted);
+      font-size: 14px;
+      white-space: nowrap;
+    }
+
+    .timeline .institution {
+      font-weight: 500;
+    }
+
+    .timeline .program {
+      margin-top: 3px;
+      color: var(--muted);
+    }
+
+    .publications {
+      margin: 0;
+      padding-left: 24px;
+    }
+
+    .publications li {
+      padding: 0 0 24px 8px;
+    }
+
+    .publications li:last-child {
+      padding-bottom: 0;
+    }
+
+    .publication-title {
+      font-weight: 500;
+    }
+
+    .publication-meta {
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .profile-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .profile-link {
+      display: block;
+      min-height: 116px;
+      padding: 22px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      color: var(--text);
+      transition: box-shadow 0.15s ease, transform 0.15s ease;
+    }
+
+    .profile-link:hover,
+    .profile-link:focus {
+      text-decoration: none;
+      box-shadow: 0 2px 8px rgba(60, 64, 67, 0.18);
+      transform: translateY(-1px);
+    }
+
+    .profile-name {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 17px;
+      font-weight: 500;
+    }
+
+    .profile-url {
+      display: block;
+      color: var(--muted);
+      font-size: 13px;
+      overflow-wrap: anywhere;
+    }
+
+    .research-interests-space {
+      min-height: 40px;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 26px 28px 34px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    @media (max-width: 760px) {
+      .header-inner {
+        min-height: auto;
+        padding-top: 18px;
+        padding-bottom: 14px;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .nav-links {
+        justify-content: flex-start;
+        gap: 18px;
+      }
+
+      .nav-links a {
+        padding: 4px 0 8px;
+      }
+
+      .hero-inner {
+        padding-top: 52px;
+        padding-bottom: 48px;
+      }
+
+      .timeline li {
+        grid-template-columns: 1fr;
+        gap: 5px;
+      }
+
+      .profile-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 
 <body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="site-title" href="#top">Eiji Yamada</a>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="#affiliation">Affiliation</a>
+        <a href="#education">Education</a>
+        <a href="#publications">Publications</a>
+        <a href="#profiles">Profiles</a>
+        <a href="#research-interests">Research Interests</a>
+      </nav>
+    </div>
+  </header>
 
-  <h1>E. Yamada</h1>
+  <div class="hero" id="top">
+    <div class="hero-inner">
+      <h1>Eiji Yamada</h1>
+      <p>PhD Student in Mathematical and Computing Science, School of Computing, Institute of Science Tokyo</p>
+    </div>
+  </div>
 
-  <p>
-    PhD Student<br>
-    [University Name]
-  </p>
+  <main>
+    <section id="affiliation">
+      <h2>Affiliation</h2>
+      <div class="affiliation-card">
+        <strong>Institute of Science Tokyo</strong>
+        <span>School of Computing · Mathematical and Computing Science · Doctoral Program</span>
+      </div>
+    </section>
 
-  <h2>Research</h2>
+    <section id="education">
+      <h2>Education</h2>
+      <ul class="timeline">
+        <li>
+          <div class="date">Apr. 2026 – Present</div>
+          <div>
+            <div class="institution">Institute of Science Tokyo</div>
+            <div class="program">Graduate Major in Mathematical and Computing Science (Doctoral Program), School of Computing</div>
+          </div>
+        </li>
+        <li>
+          <div class="date">Apr. 2024 – Mar. 2026</div>
+          <div>
+            <div class="institution">University of Tsukuba</div>
+            <div class="program">Master's Program in Mathematics, Degree Programs in Pure and Applied Sciences, Graduate School of Science and Technology</div>
+          </div>
+        </li>
+        <li>
+          <div class="date">Apr. 2020 – Mar. 2024</div>
+          <div>
+            <div class="institution">University of Tsukuba</div>
+            <div class="program">College of Mathematics, School of Science and Engineering</div>
+          </div>
+        </li>
+      </ul>
+    </section>
 
-  <p>
-    My research interests include ...
-  </p>
+    <section id="publications">
+      <h2>Publications</h2>
+      <ol class="publications">
+        <li>
+          <a class="publication-title" href="https://researchmap.jp/e-yamada/published_papers/54607400" target="_blank" rel="noopener">Classification of σ-validity in iterated announcements</a>
+          <div class="publication-meta">Eiji Yamada · July 6, 2026</div>
+        </li>
+        <li>
+          <a class="publication-title" href="https://researchmap.jp/e-yamada/published_papers/54627764" target="_blank" rel="noopener">The Sources of Unknowability and Self-refutation in Epistemic and Dynamic Epistemic Logic</a>
+          <div class="publication-meta">Eiji Yamada · April 7, 2026</div>
+        </li>
+      </ol>
+    </section>
 
-  <h2>Academic Profiles</h2>
+    <section id="profiles">
+      <h2>Academic Profiles</h2>
+      <div class="profile-grid">
+        <a class="profile-link" href="https://researchmap.jp/e-yamada" target="_blank" rel="me noopener">
+          <span class="profile-name">researchmap</span>
+          <span class="profile-url">researchmap.jp/e-yamada</span>
+        </a>
+        <a class="profile-link" href="https://orcid.org/0009-0007-2519-8016" target="_blank" rel="me noopener">
+          <span class="profile-name">ORCID</span>
+          <span class="profile-url">0009-0007-2519-8016</span>
+        </a>
+        <a class="profile-link" href="https://scholar.google.com/citations?user=GYGGPxcAAAAJ&amp;hl=en&amp;oi=sra" target="_blank" rel="me noopener">
+          <span class="profile-name">Google Scholar</span>
+          <span class="profile-url">scholar.google.com/citations?user=GYGGPxcAAAAJ</span>
+        </a>
+      </div>
+    </section>
 
-  <ul>
-    <li><a href="https://researchmap.jp/e-yamada">researchmap</a></li>
-    <li><a href="YOUR-GOOGLE-SCHOLAR-URL">Google Scholar</a></li>
-    <li><a href="YOUR-ORCID-URL">ORCID</a></li>
-  </ul>
+    <section id="research-interests">
+      <h2>Research Interests</h2>
+      <div class="research-interests-space">
+        <!-- Add research interests here when ready. -->
+      </div>
+    </section>
+  </main>
 
+  <footer>
+    <div class="footer-inner">Eiji Yamada</div>
+  </footer>
 </body>
 </html>
