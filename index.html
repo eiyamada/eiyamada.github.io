@@ -34,6 +34,7 @@
       --text: #202124;
       --muted: #5f6368;
       --border: #dadce0;
+      --soft-border: #eceff1;
       --surface: #ffffff;
       --surface-soft: #f8f9fa;
       --accent: #1a73e8;
@@ -179,29 +180,15 @@
       letter-spacing: -0.01em;
     }
 
-    h3 {
-      margin: 36px 0 18px;
-      font-size: 21px;
-      line-height: 1.3;
-      font-weight: 500;
-    }
-
-    h3:first-of-type {
-      margin-top: 0;
-    }
-
-    h4 {
-      margin: 28px 0 12px;
-      font-size: 16px;
-      line-height: 1.4;
-      font-weight: 600;
+    .affiliation-card,
+    .resource-panel {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: var(--surface);
     }
 
     .affiliation-card {
-      border: 1px solid var(--border);
-      border-radius: 10px;
       padding: 24px 26px;
-      background: var(--surface);
     }
 
     .affiliation-card strong {
@@ -235,7 +222,7 @@
       grid-template-columns: 150px 1fr;
       gap: 24px;
       padding: 20px 0;
-      border-top: 1px solid #eceff1;
+      border-top: 1px solid var(--soft-border);
     }
 
     .timeline li:first-child {
@@ -276,14 +263,49 @@
       font-size: 14px;
     }
 
-    .resource-list {
+    .resources-intro {
+      margin: -8px 0 28px;
+      color: var(--muted);
+      max-width: 760px;
+    }
+
+    .resource-panel {
+      padding: 24px 26px 26px;
+    }
+
+    .resource-panel + .resource-panel {
+      margin-top: 20px;
+    }
+
+    .resource-panel-title {
       margin: 0;
-      padding-left: 22px;
+      font-size: 20px;
+      line-height: 1.3;
+      font-weight: 500;
+    }
+
+    .resource-category {
+      margin-top: 24px;
+      padding-top: 22px;
+      border-top: 1px solid var(--soft-border);
+    }
+
+    .resource-category h3 {
+      margin: 0 0 12px;
+      font-size: 15px;
+      line-height: 1.4;
+      font-weight: 600;
+      color: var(--muted);
+    }
+
+    .resource-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
     }
 
     .resource-list li {
-      margin: 0 0 14px;
-      padding-left: 4px;
+      margin: 0 0 16px;
     }
 
     .resource-list li:last-child {
@@ -292,7 +314,12 @@
 
     .resource-name,
     .book-citation {
+      display: block;
       color: var(--text);
+    }
+
+    .book-citation em {
+      font-style: italic;
     }
 
     .resource-url {
@@ -301,12 +328,6 @@
       color: var(--accent);
       font-size: 13px;
       overflow-wrap: anywhere;
-    }
-
-    .resources-block + .resources-block {
-      margin-top: 46px;
-      padding-top: 40px;
-      border-top: 1px solid #eceff1;
     }
 
     footer {
@@ -348,6 +369,10 @@
       .timeline li {
         grid-template-columns: 1fr;
         gap: 5px;
+      }
+
+      .resource-panel {
+        padding: 22px 20px 24px;
       }
     }
   </style>
@@ -430,129 +455,150 @@
 
     <section id="resources">
       <h2>Resources</h2>
+      <p class="resources-intro">Selected websites, articles, and books related to epistemic logic and neighboring topics.</p>
 
-      <div class="resources-block">
-        <h3>Websites</h3>
+      <div class="resource-panel">
+        <h3 class="resource-panel-title">Websites</h3>
 
-        <h4>Epistemic Logic</h4>
-        <ul class="resource-list">
-          <li>
-            <span class="resource-name">Wikipedia — Epistemic modal logic</span>
-            <a class="resource-url" href="https://en.wikipedia.org/wiki/Epistemic_modal_logic" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Epistemic_modal_logic</a>
-          </li>
-          <li>
-            <span class="resource-name">Stanford Encyclopedia of Philosophy — Epistemic Logic</span>
-            <a class="resource-url" href="https://plato.stanford.edu/archives/spr2019/entries/logic-epistemic/" target="_blank" rel="noopener">https://plato.stanford.edu/archives/spr2019/entries/logic-epistemic/</a>
-          </li>
-        </ul>
+        <div class="resource-category">
+          <h3>Epistemic Logic</h3>
+          <ul class="resource-list">
+            <li>
+              <span class="resource-name">Wikipedia — Epistemic modal logic</span>
+              <a class="resource-url" href="https://en.wikipedia.org/wiki/Epistemic_modal_logic" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Epistemic_modal_logic</a>
+            </li>
+            <li>
+              <span class="resource-name">Stanford Encyclopedia of Philosophy — Epistemic Logic</span>
+              <a class="resource-url" href="https://plato.stanford.edu/entries/logic-epistemic/" target="_blank" rel="noopener">https://plato.stanford.edu/entries/logic-epistemic/</a>
+            </li>
+          </ul>
+        </div>
 
-        <h4>Dynamic Epistemic Logic</h4>
-        <ul class="resource-list">
-          <li>
-            <span class="resource-name">Wikipedia — Dynamic epistemic logic</span>
-            <a class="resource-url" href="https://en.wikipedia.org/wiki/Dynamic_epistemic_logic" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Dynamic_epistemic_logic</a>
-          </li>
-          <li>
-            <span class="resource-name">Internet Encyclopedia of Philosophy — Dynamic Epistemic Logic</span>
-            <a class="resource-url" href="https://iep.utm.edu/dynamic-epistemic-logic/#H6" target="_blank" rel="noopener">https://iep.utm.edu/dynamic-epistemic-logic/#H6</a>
-          </li>
-          <li>
-            <span class="resource-name">Stanford Encyclopedia of Philosophy — Dynamic Epistemic Logic</span>
-            <a class="resource-url" href="https://plato.stanford.edu/entries/dynamic-epistemic/" target="_blank" rel="noopener">https://plato.stanford.edu/entries/dynamic-epistemic/</a>
-          </li>
-        </ul>
+        <div class="resource-category">
+          <h3>Dynamic Epistemic Logic</h3>
+          <ul class="resource-list">
+            <li>
+              <span class="resource-name">Wikipedia — Dynamic epistemic logic</span>
+              <a class="resource-url" href="https://en.wikipedia.org/wiki/Dynamic_epistemic_logic" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Dynamic_epistemic_logic</a>
+            </li>
+            <li>
+              <span class="resource-name">Internet Encyclopedia of Philosophy — Dynamic Epistemic Logic</span>
+              <a class="resource-url" href="https://iep.utm.edu/dynamic-epistemic-logic/#H6" target="_blank" rel="noopener">https://iep.utm.edu/dynamic-epistemic-logic/#H6</a>
+            </li>
+            <li>
+              <span class="resource-name">Stanford Encyclopedia of Philosophy — Dynamic Epistemic Logic</span>
+              <a class="resource-url" href="https://plato.stanford.edu/entries/dynamic-epistemic/" target="_blank" rel="noopener">https://plato.stanford.edu/entries/dynamic-epistemic/</a>
+            </li>
+          </ul>
+        </div>
 
-        <h4>Epistemic Game Theory</h4>
-        <ul class="resource-list">
-          <li>
-            <span class="resource-name">Stanford Encyclopedia of Philosophy — Epistemic Foundations of Game Theory</span>
-            <a class="resource-url" href="https://plato.stanford.edu/entries/epistemic-game/" target="_blank" rel="noopener">https://plato.stanford.edu/entries/epistemic-game/</a>
-          </li>
-        </ul>
+        <div class="resource-category">
+          <h3>Epistemic Game Theory</h3>
+          <ul class="resource-list">
+            <li>
+              <span class="resource-name">Stanford Encyclopedia of Philosophy — Epistemic Foundations of Game Theory</span>
+              <a class="resource-url" href="https://plato.stanford.edu/entries/epistemic-game/" target="_blank" rel="noopener">https://plato.stanford.edu/entries/epistemic-game/</a>
+            </li>
+          </ul>
+        </div>
 
-        <h4>Articles That I Found Interesting</h4>
-        <ul class="resource-list">
-          <li>
-            <span class="resource-name">Wikipedia — Common knowledge</span>
-            <a class="resource-url" href="https://en.wikipedia.org/wiki/Common_knowledge" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Common_knowledge</a>
-          </li>
-          <li>
-            <span class="resource-name">Stanford Encyclopedia of Philosophy — Common Knowledge</span>
-            <a class="resource-url" href="https://plato.stanford.edu/entries/common-knowledge/" target="_blank" rel="noopener">https://plato.stanford.edu/entries/common-knowledge/</a>
-          </li>
-          <li>
-            <span class="resource-name">Wikipedia — Muddy Children Puzzle</span>
-            <a class="resource-url" href="https://en.wikipedia.org/wiki/Induction_puzzles#Muddy_Children_Puzzle" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Induction_puzzles#Muddy_Children_Puzzle</a>
-          </li>
-          <li>
-            <span class="resource-name">Stanford Encyclopedia of Philosophy — Epistemic Paradoxes</span>
-            <a class="resource-url" href="https://plato.stanford.edu/entries/epistemic-paradoxes/" target="_blank" rel="noopener">https://plato.stanford.edu/entries/epistemic-paradoxes/</a>
-          </li>
-          <li>
-            <span class="resource-name">Stanford Encyclopedia of Philosophy — Self-Reference</span>
-            <a class="resource-url" href="https://plato.stanford.edu/entries/self-reference/" target="_blank" rel="noopener">https://plato.stanford.edu/entries/self-reference/</a>
-          </li>
-          <li>
-            <span class="resource-name">Terence Tao — Epistemic logic, temporal epistemic logic, and the blue-eyed islander puzzle lower bound</span>
-            <a class="resource-url" href="https://terrytao.wordpress.com/2011/05/19/epistemic-logic-temporal-epistemic-logic-and-the-blue-eyed-islander-puzzle-lower-bound/" target="_blank" rel="noopener">https://terrytao.wordpress.com/2011/05/19/epistemic-logic-temporal-epistemic-logic-and-the-blue-eyed-islander-puzzle-lower-bound/</a>
-          </li>
-        </ul>
+        <div class="resource-category">
+          <h3>Articles That I Found Interesting</h3>
+          <ul class="resource-list">
+            <li>
+              <span class="resource-name">Wikipedia — Common knowledge</span>
+              <a class="resource-url" href="https://en.wikipedia.org/wiki/Common_knowledge" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Common_knowledge</a>
+            </li>
+            <li>
+              <span class="resource-name">Stanford Encyclopedia of Philosophy — Common Knowledge</span>
+              <a class="resource-url" href="https://plato.stanford.edu/entries/common-knowledge/" target="_blank" rel="noopener">https://plato.stanford.edu/entries/common-knowledge/</a>
+            </li>
+            <li>
+              <span class="resource-name">Wikipedia — Muddy Children Puzzle</span>
+              <a class="resource-url" href="https://en.wikipedia.org/wiki/Induction_puzzles#Muddy_Children_Puzzle" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Induction_puzzles#Muddy_Children_Puzzle</a>
+            </li>
+            <li>
+              <span class="resource-name">Stanford Encyclopedia of Philosophy — Epistemic Paradoxes</span>
+              <a class="resource-url" href="https://plato.stanford.edu/entries/epistemic-paradoxes/" target="_blank" rel="noopener">https://plato.stanford.edu/entries/epistemic-paradoxes/</a>
+            </li>
+            <li>
+              <span class="resource-name">Stanford Encyclopedia of Philosophy — Self-Reference</span>
+              <a class="resource-url" href="https://plato.stanford.edu/entries/self-reference/" target="_blank" rel="noopener">https://plato.stanford.edu/entries/self-reference/</a>
+            </li>
+            <li>
+              <span class="resource-name">Terence Tao — Epistemic logic, temporal epistemic logic, and the blue-eyed islander puzzle lower bound</span>
+              <a class="resource-url" href="https://terrytao.wordpress.com/2011/05/19/epistemic-logic-temporal-epistemic-logic-and-the-blue-eyed-islander-puzzle-lower-bound/" target="_blank" rel="noopener">https://terrytao.wordpress.com/2011/05/19/epistemic-logic-temporal-epistemic-logic-and-the-blue-eyed-islander-puzzle-lower-bound/</a>
+            </li>
+          </ul>
+        </div>
       </div>
 
-      <div class="resources-block">
-        <h3>Books</h3>
+      <div class="resource-panel">
+        <h3 class="resource-panel-title">Books</h3>
 
-        <h4>Epistemic Logic</h4>
-        <ul class="resource-list">
-          <li>
-            <span class="book-citation">Ronald Fagin, Joseph Y. Halpern, Yoram Moses, and Moshe Y. Vardi. <em>Reasoning About Knowledge</em>. MIT Press, 1995 (paperback edition, 2004).</span>
-            <a class="resource-url" href="https://mitpress.mit.edu/9780262562003/reasoning-about-knowledge/" target="_blank" rel="noopener">https://mitpress.mit.edu/9780262562003/reasoning-about-knowledge/</a>
-          </li>
-          <li>
-            <span class="book-citation">Joseph Y. Halpern. <em>Reasoning about Uncertainty</em>, 2nd ed. MIT Press, 2017.</span>
-            <a class="resource-url" href="https://mitpress.mit.edu/9780262533805/reasoning-about-uncertainty/" target="_blank" rel="noopener">https://mitpress.mit.edu/9780262533805/reasoning-about-uncertainty/</a>
-          </li>
-          <li>
-            <span class="book-citation">J.-J. Ch. Meyer and W. van der Hoek. <em>Epistemic Logic for AI and Computer Science</em>. Cambridge University Press, 1995.</span>
-            <a class="resource-url" href="https://www.cambridge.org/core/books/epistemic-logic-for-ai-and-computer-science/B08AA3A5CBFBE47274873B1177DB0ADA" target="_blank" rel="noopener">https://www.cambridge.org/core/books/epistemic-logic-for-ai-and-computer-science/B08AA3A5CBFBE47274873B1177DB0ADA</a>
-          </li>
-          <li>
-            <span class="book-citation">Hans van Ditmarsch, Joseph Y. Halpern, Wiebe van der Hoek, and Barteld Kooi, eds. <em>Handbook of Epistemic Logic</em>. College Publications, 2015.</span>
-            <a class="resource-url" href="https://collegepublications.co.uk/handbooks/?00002" target="_blank" rel="noopener">https://collegepublications.co.uk/handbooks/?00002</a>
-          </li>
-        </ul>
+        <div class="resource-category">
+          <h3>Epistemic Logic</h3>
+          <ul class="resource-list">
+            <li>
+              <span class="book-citation">Ronald Fagin, Joseph Y. Halpern, Yoram Moses, and Moshe Y. Vardi. <em>Reasoning About Knowledge</em>. MIT Press, 1995 (paperback edition, 2004).</span>
+              <a class="resource-url" href="https://mitpress.mit.edu/9780262562003/reasoning-about-knowledge/" target="_blank" rel="noopener">https://mitpress.mit.edu/9780262562003/reasoning-about-knowledge/</a>
+            </li>
+            <li>
+              <span class="book-citation">Joseph Y. Halpern. <em>Reasoning about Uncertainty</em>, 2nd ed. MIT Press, 2017.</span>
+              <a class="resource-url" href="https://mitpress.mit.edu/9780262533805/reasoning-about-uncertainty/" target="_blank" rel="noopener">https://mitpress.mit.edu/9780262533805/reasoning-about-uncertainty/</a>
+            </li>
+            <li>
+              <span class="book-citation">J.-J. Ch. Meyer and W. van der Hoek. <em>Epistemic Logic for AI and Computer Science</em>. Cambridge University Press, 1995.</span>
+              <a class="resource-url" href="https://www.cambridge.org/core/books/epistemic-logic-for-ai-and-computer-science/B08AA3A5CBFBE47274873B1177DB0ADA" target="_blank" rel="noopener">https://www.cambridge.org/core/books/epistemic-logic-for-ai-and-computer-science/B08AA3A5CBFBE47274873B1177DB0ADA</a>
+            </li>
+            <li>
+              <span class="book-citation">Hans van Ditmarsch, Joseph Y. Halpern, Wiebe van der Hoek, and Barteld Kooi, eds. <em>Handbook of Epistemic Logic</em>. College Publications, 2015.</span>
+              <a class="resource-url" href="https://collegepublications.co.uk/handbooks/?00002" target="_blank" rel="noopener">https://collegepublications.co.uk/handbooks/?00002</a>
+            </li>
+          </ul>
+        </div>
 
-        <h4>Dynamic Epistemic Logic</h4>
-        <ul class="resource-list">
-          <li>
-            <span class="book-citation">Hans van Ditmarsch, Wiebe van der Hoek, and Barteld Kooi. <em>Dynamic Epistemic Logic</em>. Springer, 2007.</span>
-            <a class="resource-url" href="https://link.springer.com/book/10.1007/978-1-4020-5839-4" target="_blank" rel="noopener">https://link.springer.com/book/10.1007/978-1-4020-5839-4</a>
-          </li>
-          <li>
-            <span class="book-citation">Hans van Ditmarsch and Barteld Kooi. <em>One Hundred Prisoners and a Light Bulb</em>. Springer, 2015.</span>
-            <a class="resource-url" href="https://link.springer.com/book/10.1007/978-3-319-16694-0" target="_blank" rel="noopener">https://link.springer.com/book/10.1007/978-3-319-16694-0</a>
-          </li>
-        </ul>
+        <div class="resource-category">
+          <h3>Dynamic Epistemic Logic</h3>
+          <ul class="resource-list">
+            <li>
+              <span class="book-citation">Hans van Ditmarsch, Wiebe van der Hoek, and Barteld Kooi. <em>Dynamic Epistemic Logic</em>. Springer, 2007.</span>
+              <a class="resource-url" href="https://link.springer.com/book/10.1007/978-1-4020-5839-4" target="_blank" rel="noopener">https://link.springer.com/book/10.1007/978-1-4020-5839-4</a>
+            </li>
+            <li>
+              <span class="book-citation">Hans van Ditmarsch and Barteld Kooi. <em>One Hundred Prisoners and a Light Bulb</em>. Springer, 2015.</span>
+              <a class="resource-url" href="https://link.springer.com/book/10.1007/978-3-319-16694-0" target="_blank" rel="noopener">https://link.springer.com/book/10.1007/978-3-319-16694-0</a>
+            </li>
+          </ul>
+        </div>
 
-        <h4>Logic and Games</h4>
-        <ul class="resource-list">
-          <li>
-            <span class="book-citation">Johan van Benthem. <em>Logic in Games</em>. MIT Press, 2014.</span>
-            <a class="resource-url" href="https://mitpress.mit.edu/9780262019903/logic-in-games/" target="_blank" rel="noopener">https://mitpress.mit.edu/9780262019903/logic-in-games/</a>
-          </li>
-        </ul>
+        <div class="resource-category">
+          <h3>Logic and Games</h3>
+          <ul class="resource-list">
+            <li>
+              <span class="book-citation">Johan van Benthem. <em>Logic in Games</em>. MIT Press, 2014.</span>
+              <a class="resource-url" href="https://mitpress.mit.edu/9780262019903/logic-in-games/" target="_blank" rel="noopener">https://mitpress.mit.edu/9780262019903/logic-in-games/</a>
+            </li>
+            <li>
+              <span class="book-citation">Johan van Benthem. <em>Logical Dynamics of Information and Interaction</em>. Cambridge University Press, 2011.</span>
+              <a class="resource-url" href="https://www.cambridge.org/core/books/logical-dynamics-of-information-and-interaction/C6007450DC8C99C2CD35BA50FE3ACA5F" target="_blank" rel="noopener">https://www.cambridge.org/core/books/logical-dynamics-of-information-and-interaction/C6007450DC8C99C2CD35BA50FE3ACA5F</a>
+            </li>
+          </ul>
+        </div>
 
-        <h4>Epistemic Game Theory</h4>
-        <ul class="resource-list">
-          <li>
-            <span class="book-citation">Andrés Perea. <em>Epistemic Game Theory: Reasoning and Choice</em>. Cambridge University Press, 2012.</span>
-            <a class="resource-url" href="https://www.cambridge.org/core/books/epistemic-game-theory/21FD6D87C66B3BCF1B6D880A10D71D51" target="_blank" rel="noopener">https://www.cambridge.org/core/books/epistemic-game-theory/21FD6D87C66B3BCF1B6D880A10D71D51</a>
-          </li>
-          <li>
-            <span class="book-citation">Paolo Galeazzi, Eric Pacuit, and Olivier Roy. <em>Epistemic Game Theory</em>. Elements in Decision Theory and Philosophy. Cambridge University Press, 2026.</span>
-            <a class="resource-url" href="https://www.cambridge.org/core/books/epistemic-game-theory/C734BC3775DEBD656DC7E113DD18392E" target="_blank" rel="noopener">https://www.cambridge.org/core/books/epistemic-game-theory/C734BC3775DEBD656DC7E113DD18392E</a>
-          </li>
-        </ul>
+        <div class="resource-category">
+          <h3>Epistemic Game Theory</h3>
+          <ul class="resource-list">
+            <li>
+              <span class="book-citation">Andrés Perea. <em>Epistemic Game Theory: Reasoning and Choice</em>. Cambridge University Press, 2012.</span>
+              <a class="resource-url" href="https://www.cambridge.org/core/books/epistemic-game-theory/21FD6D87C66B3BCF1B6D880A10D71D51" target="_blank" rel="noopener">https://www.cambridge.org/core/books/epistemic-game-theory/21FD6D87C66B3BCF1B6D880A10D71D51</a>
+            </li>
+            <li>
+              <span class="book-citation">Paolo Galeazzi, Eric Pacuit, and Olivier Roy. <em>Epistemic Game Theory</em>. Elements in Decision Theory and Philosophy. Cambridge University Press, 2026.</span>
+              <a class="resource-url" href="https://www.cambridge.org/core/books/epistemic-game-theory/C734BC3775DEBD656DC7E113DD18392E" target="_blank" rel="noopener">https://www.cambridge.org/core/books/epistemic-game-theory/C734BC3775DEBD656DC7E113DD18392E</a>
+            </li>
+          </ul>
+        </div>
       </div>
     </section>
   </main>
